@@ -8,11 +8,8 @@ RUN pip install -r requirements.txt
 
 COPY . /python_assignment
 
-#RUN apk --update-cache add sqlite \
-#    && rm -rf /var/cache/apk/* \
-#    && ./financial/create-db.sh \
-#    && chmod a+rw ./financial/assignment.db
-##    && chmod a+rw ./financial/assignment.sqlite \
+EXPOSE 4321
 
-ENTRYPOINT [ "python" ]
-CMD [ "./financial/app.py" ]
+ENV FLASK_APP="./financial/app.py"
+
+CMD [ "python", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4321"]

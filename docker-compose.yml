@@ -5,7 +5,7 @@ services:
     image: assignment/financial_data:1.0.0
     build: .
     ports:
-      - "5000:5000"
+      - "4321:4321"
     environment:
       - DB_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres_db:5432/${POSTGRES_DB}
     depends_on:
@@ -21,5 +21,3 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
-#    volumes:
-#      - ./postgres-data:/var/lib/postgresql/data
